@@ -9,7 +9,7 @@ import jakarta.persistence.PersistenceContext;
 @Loggable
 @ApplicationScoped
 public class UserService {
-    @PersistenceContext
+    @PersistenceContext(unitName = "mft")
     private EntityManager entityManager;
 
     public void save(User user) {
