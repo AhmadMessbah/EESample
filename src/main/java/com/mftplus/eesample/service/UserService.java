@@ -14,6 +14,7 @@ public class UserService {
     private EntityManager entityManager;
 
     @Transactional
+    @Loggable
     public void save(User user) {
         entityManager.persist(user);
     }
