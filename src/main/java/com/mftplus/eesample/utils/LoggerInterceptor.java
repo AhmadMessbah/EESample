@@ -13,19 +13,24 @@ import java.util.Arrays;
 public class LoggerInterceptor {
     @AroundInvoke
     public Object intercept(InvocationContext context) throws Exception {
-        log.info(
-                String.format("%s Started with parameters (%s)",
-                        context.getMethod().getName(),
-                        Arrays.toString(context.getParameters())
-                )
-        );
-        Object result = context.proceed();
-        log.info(
-                String.format("%s Finished with result (%s)",
-                        context.getMethod().getName(),
-                        result
-                )
-        );
-        return result;
+        try {
+            log.info(
+                    String.format("%s Started with parameters (%s)",
+                            context.getMethod().getName(),
+                            Arrays.toString(context.getParameters())
+                    )
+            );
+            Object result = context.proceed();
+            log.info(
+                    String.format("%s Finished with result (%s)",
+                            context.getMethod().getName(),
+                            result
+                    )
+            );
+            return result;
+        } catch (Exception e) {
+            log.error(String.format("%s throws exception (%s)", context.getMethod().getName(), e.getMessage()));
+            return e;
+        }
     }
 }

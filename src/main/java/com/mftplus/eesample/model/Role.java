@@ -14,10 +14,10 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 
-@Entity(name="userntity")
-@Table(name="users")
+@Entity(name = "roleEntity")
+@Table(name = "roles")
 public class Role {
     @Id
-    @Column(name="role_name", length = 20)
+    @Column(name = "role_name", length = 20)
     private String roleName;
 }

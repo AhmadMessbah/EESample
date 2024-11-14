@@ -21,5 +21,6 @@ public class InitServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Role adminRole = Role.builder().roleName("admin").build();
         User user = User.builder().username("ahmad").password("ahmad123").role(adminRole).build();
+        userService.save(user);
     }
 }
