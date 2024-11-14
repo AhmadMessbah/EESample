@@ -8,7 +8,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 
 @Loggable
-@Path("test")
+@Path("/test")
 public class TestApi {
     @GET
     public Response test() {
